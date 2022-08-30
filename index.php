@@ -90,7 +90,7 @@
             <p class="exercice-txt">Affichez le prix le plus élevé des 3 produits ci-dessus.</p>
             <div class="exercice-sandbox">
 
-            <?=max($priceProduct1,$priceProduct2,$priceProduct3)?>
+                <?=max($priceProduct1,$priceProduct2,$priceProduct3)?>
 
             </div>
         </section>
@@ -99,6 +99,11 @@
         <?php
 
         $text1 = "Le marchand m'a vendu un arc et des flèches.";
+        $nameProduct = [
+            "arc" => 10.30,
+            "flèche" => 2.90,
+            "potion" => 5.20
+        ];
 
         ?>
         <section class="exercice">
@@ -106,28 +111,58 @@
             <p class="exercice-txt">Affichez dans une liste HTML le nom des produits de la question 2 qui sont présents dans la phrase : "<?=$text1?>"</p>
             <div class="exercice-sandbox">
 
+                <ul>
+                    <?php
+
+                        $result = "";
+                        foreach($nameProduct as $label => $price)
+                        {
+                            if ( str_contains($text1, $label) ) $result .= "<li>$label : $price</li>";
+                        }
+
+                        echo $result;
+
+                    ?>
+                </ul>
+
             </div>
         </section>
 
         <!-- QUESTION 6 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 6</h2>
-            <p class="exercice-txt">Parmis les scores suivants, affichez le prénom des joueurs qui ont obtenus entre 50 et 150 points.</p>
+            <p class="exercice-txt">Parmi les scores suivants, affichez le prénom des joueurs qui ont obtenus entre 50 et 150 points.</p>
             <div class="exercice-sandbox">
+                <ul>
                 <?php
 
-                $namePlayer1 = "Tim";
-                $scorePlayer1 = 67;
-                $namePlayer2 = "Morgan";
-                $scorePlayer2 = 198;
-                $namePlayer3 = "Hamed";
-                $scorePlayer3 = 21;
-                $namePlayer4 = "Camille";
-                $scorePlayer4 = 134;
-                $namePlayer5 = "Kevin";
-                $scorePlayer5 = 103;
+                    $namePlayer1 = "Tim";
+                    $scorePlayer1 = 67;
+                    $namePlayer2 = "Morgan";
+                    $scorePlayer2 = 198;
+                    $namePlayer3 = "Hamed";
+                    $scorePlayer3 = 21;
+                    $namePlayer4 = "Camille";
+                    $scorePlayer4 = 134;
+                    $namePlayer5 = "Kevin";
+                    $scorePlayer5 = 103;
+
+                    $rounds = [];
+                    array_push( $rounds, [$namePlayer1 => $scorePlayer1], [$namePlayer2 => $scorePlayer2],
+                            [$namePlayer3 => $scorePlayer3], [$namePlayer4 => $scorePlayer4], [$namePlayer5 => $scorePlayer5]);
+
+                        $result = "";
+
+                        foreach($rounds as $round){
+                            foreach($round as $name=>$score){
+                                if ($score > 50 && $score < 150) $result .= "<li>".$name."</li>";
+                            }
+                        }
+
+                        echo $result;
 
                 ?>
+                </ul>
             </div>
         </section>
 
@@ -137,7 +172,7 @@
             <h2 class="exercice-ttl">Question 7</h2>
             <p class="exercice-txt">En réutilisant les scores de la question pécédente, afficher le nom du joueur ayant obtenu le plus grand score.</p>
             <div class="exercice-sandbox">
-                
+
             </div>
         </section>
 
@@ -147,7 +182,10 @@
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Affichez le prénom du joueur le plus long en nombre de caractères.</p>
             <div class="exercice-sandbox">
-                
+
+            <?php
+
+            ?>
             </div>
         </section>
 
