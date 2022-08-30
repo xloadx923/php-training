@@ -65,7 +65,21 @@
             <h2 class="exercice-ttl">Question 3</h2>
             <p class="exercice-txt">Calculer le montant total de la commande des produits ci-dessus avec les quantités ci-dessous et appliquez lui une remise de 10%.</p>
             <div class="exercice-sandbox">
+                <?php
+                    $quantityProduct1 = 1;
+                    $quantityProduct2 = 10;
+                    $quantityProduct3 = 4;
 
+                    function totalDiscount(float $price1, float $price2, float $price3, int $quantity1, int $quantity2, int $quantity3) : float{
+                        $total = $price1*$quantity1 + $price2*$quantity2 + $price3*$quantity3;
+                        $pourcent = $total - $total * 0.1;
+                        return $pourcent;
+                    }
+
+                    // echo totalDiscount($priceProduct1, $priceProduct2, $priceProduct3);
+                    echo totalDiscount($priceProduct1, $priceProduct2, $priceProduct3, $quantityProduct1, $quantityProduct2, $quantityProduct3);
+
+                ?>
             </div>
         </section>
 
@@ -75,6 +89,8 @@
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Affichez le prix le plus élevé des 3 produits ci-dessus.</p>
             <div class="exercice-sandbox">
+
+            <?=max($priceProduct1,$priceProduct2,$priceProduct3)?>
 
             </div>
         </section>
