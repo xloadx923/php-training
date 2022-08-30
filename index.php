@@ -148,6 +148,7 @@
                     $scorePlayer5 = 103;
 
                     $rounds = [];
+                    $minMaxScores = [];
                     array_push( $rounds, [$namePlayer1 => $scorePlayer1], [$namePlayer2 => $scorePlayer2],
                             [$namePlayer3 => $scorePlayer3], [$namePlayer4 => $scorePlayer4], [$namePlayer5 => $scorePlayer5]);
 
@@ -155,7 +156,9 @@
 
                         foreach($rounds as $round){
                             foreach($round as $name=>$score){
-                                if ($score > 50 && $score < 150) $result .= "<li>".$name."</li>";
+                                if ($score > 50 && $score < 150){
+                                    $result .= "<li>".$name."</li>";
+                                }
                             }
                         }
 
@@ -173,6 +176,24 @@
             <p class="exercice-txt">En réutilisant les scores de la question pécédente, afficher le nom du joueur ayant obtenu le plus grand score.</p>
             <div class="exercice-sandbox">
 
+            <?php
+
+                $last = 0;
+                $resultName = "";
+
+                foreach($rounds as $round){
+                    foreach($round as $name=>$score){
+                        $next = $score;
+                        if($next > $last){
+                            $resultName = $name;
+                            $last = $score;
+                        }
+                    }
+                }
+                echo $resultName;
+
+            ?>
+
             </div>
         </section>
 
@@ -185,7 +206,22 @@
 
             <?php
 
+                $last = 0;
+                $resultName = "";
+
+                foreach($rounds as $round){
+                    foreach($round as $name=>$score){
+                        $next = strlen($name);
+                        if($next > $last){
+                            $resultName = $name;
+                            $last = $next;
+                        }
+                    }
+                }
+                echo $resultName;
+
             ?>
+
             </div>
         </section>
 
