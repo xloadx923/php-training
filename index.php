@@ -71,7 +71,7 @@
                     $quantityProduct3 = 4;
 
                     function totalDiscount(float $price1, float $price2, float $price3, int $quantity1, int $quantity2, int $quantity3) : float{
-                        $total = $price1*$quantity1 + $price2*$quantity2 + $price3*$quantity3;
+                        $total =    $price1*$quantity1 + $price2*$quantity2 + $price3*$quantity3;
                         $pourcent = $total - $total * 0.1;
                         return $pourcent;
                     }
@@ -238,7 +238,42 @@
             </ul>
             <p class="exercice-txt">Afficher la valeur de cette variable avec tous les détails.</p>
             <div class="exercice-sandbox">
-                
+
+                <?php
+
+                    $players = [];
+                    array_push($players,
+                        [
+                            "name"  => "Tim",
+                            "age"   => 25,
+                            "score" => 67
+                        ],
+                        [
+                            "name"  => "Morgan",
+                            "age"   => 34,
+                            "score" => 198
+                        ],
+                        [
+                            "name"  => "Hamed",
+                            "age"   => 27,
+                            "score" => 21
+                        ],
+                        [
+                            "name"  => "Camille",
+                            "age"   => 47,
+                            "score" => 134
+                        ],
+                        [
+                            "name"  => "Kevin",
+                            "age"   => 31,
+                            "score" => 103
+                            ]
+                    );
+
+                    var_dump($players);
+
+                ?>
+
             </div>
         </section>
 
@@ -247,6 +282,27 @@
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher le prénom et l'âge du joueur le plus jeune dans une phrase dans une balise HTML P.</p>
             <div class="exercice-sandbox">
+
+                <?php
+
+                    $last = 0;
+                    $resultName = "";
+
+                    foreach($players as $player){
+                        
+                        foreach($player as $name=>$age){
+                            $next = $age;
+                            if( $last !== 0 && $next < $last){
+                                echo "
+                                ".$next;
+                                $resultName = $name;
+                                $last = $next;
+                            }
+                        }
+                    }
+                    echo "<p>$resultName a $last ans, il est le plus jeune</p>";
+                    var_dump($players);
+                ?>
 
             </div>
         </section>
