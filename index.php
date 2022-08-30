@@ -45,13 +45,18 @@
             <p class="exercice-txt">Afficher dans une liste HTML le nom des produits suivants et leurs prix.</p>
             <div class="exercice-sandbox">
                 <?php
-                $nameProduct1 = "arc";
-                $priceProduct1 = 10.30;
-                $nameProduct2 = "flèche";
-                $priceProduct2 = 2.90;
-                $nameProduct3 = "potion";
-                $priceProduct3 = 5.20;
+                    $nameProduct1 = "arc";
+                    $priceProduct1 = 10.30;
+                    $nameProduct2 = "flèche";
+                    $priceProduct2 = 2.90;
+                    $nameProduct3 = "potion";
+                    $priceProduct3 = 5.20;
                 ?>
+                <ul>
+                    <li><?php echo $nameProduct1." : ".$priceProduct1; ?></li>
+                    <li><?php echo $nameProduct2." : ".$priceProduct2; ?></li>
+                    <li><?php echo $nameProduct3." : ".$priceProduct3; ?></li>
+                </ul>
             </div>
         </section>
 
