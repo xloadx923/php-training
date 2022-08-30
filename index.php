@@ -58,7 +58,11 @@
             <h2 class="exercice-ttl">Question 3</h2>
             <p class="exercice-txt">Calculer le montant total de la commande des produits ci-dessus avec les quantités ci-dessous et appliquez lui une remise de 10%.</p>
             <div class="exercice-sandbox">
-
+            <?php
+                $quantityProduct1 = 1;
+                $quantityProduct2 = 10;
+                $quantityProduct3 = 4;
+            ?>
             </div>
         </section>
 
