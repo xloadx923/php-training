@@ -196,14 +196,24 @@ $fruits = ["fraise", "banane", "pomme", "cerise", "abricot", "pêche", "ananas",
         <!-- QUESTION 10 -->
         <?php
 
-        $salad = "Dans ma salade de fruit préférée, il y a de la banane, des pêches, quelques fraises, des noix et une cuillère de miel.";
-                
+            $salad = "Dans ma salade de fruit préférée, il y a de la banane, des pêches, quelques fraises, des noix et une cuillère de miel.";
+
         ?>
         <section class="exercice">
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher dans une liste HTML tous les fruits de la liste qui apparaissent dans la phrase suivante : "<?=$salad?>"</p>
             <div class="exercice-sandbox">
-                 
+                <ul>
+                    <?php
+
+                        foreach($fruits as $fruit){
+                            if(str_contains($salad,$fruit)){
+                                echo "<li>".$fruit."</li>";
+                            }
+                        }
+
+                    ?>
+                </ul>
             </div>
         </section>
     </div>

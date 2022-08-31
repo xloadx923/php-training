@@ -37,6 +37,12 @@ $prices = [3, 2, 2, 5, 8];
             <p class="exercice-txt">Ordonner le tableau des prix par ordre croissant et l'afficher en détail</p>
             <div class="exercice-sandbox">
 
+                <?php
+
+                    sort($prices);
+
+                ?>
+
             </div>
         </section>
 
@@ -45,7 +51,15 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 2</h2>
             <p class="exercice-txt">Ajouter 1 euro à chaque prix</p>
             <div class="exercice-sandbox">
-                
+
+                <?php
+
+                    foreach($prices as $index=>$price){
+                        $prices[$index] = $price + 1;
+                    }
+
+                ?>
+
             </div>
         </section>
 
@@ -54,7 +68,13 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 3</h2>
             <p class="exercice-txt">Créer le tableau $store qui combine les tableaux des fruits et des prix afin d'obtenir un tableau associatif d'attribution des prix. Afficher le tableau obtenu</p>
             <div class="exercice-sandbox">
-                
+
+            <?php
+
+                $store = array_combine($fruits, $prices);
+
+            ?>
+
             </div>
         </section>
 
@@ -63,6 +83,12 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Afficher dans une liste HTML le nom des fruits ayant un prix inférieur à 4 euros</p>
             <div class="exercice-sandbox">
+
+                    <?php
+
+                    
+
+                    ?>
 
             </div>
         </section>
