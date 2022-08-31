@@ -226,7 +226,6 @@
                 foreach($scores as $playerName => $score){
                     if ($maxName === strlen($playerName)) {
                         echo $playerName;
-                        
                     }
                 }
 
@@ -248,6 +247,19 @@
             <p class="exercice-txt">Afficher la valeur de cette variable avec tous les détails.</p>
             <div class="exercice-sandbox">
                 
+
+            <?php 
+            
+            $players = [
+                ['firstname' => 'Tim', 'age' => 25, 'score' => 67],
+                ['firstname' => 'Morgan', 'age' => 34, 'score' => 198],
+                ['firstname' => 'Hamed', 'age' => 27, 'score' => 21],
+                ['firstname' => 'Camille', 'age' => 47, 'score' => 134],
+                ['firstname' => 'Kevin', 'age' => 31, 'score' => 103]
+            ];
+
+            var_dump($players);
+            ?>
             </div>
         </section>
 
@@ -256,7 +268,15 @@
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher le prénom et l'âge du joueur le plus jeune dans une phrase dans une balise HTML P.</p>
             <div class="exercice-sandbox">
-
+                <?php
+                    foreach($players as $player) {
+                        if(!isset($minA) || $player["age"] < $minA) {
+                            $minA = $player["age"];
+                            $youngP = $player["firstname"];
+                        }
+                    }
+                    echo "<p>Le plus jeune est $youngP ($minA ans).</p>";
+                ?>
             </div>
         </section>
 
