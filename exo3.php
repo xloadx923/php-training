@@ -40,6 +40,7 @@ $prices = [3, 2, 2, 5, 8];
                 <?php
 
                     sort($prices);
+                    var_dump($prices);
 
                 ?>
 
@@ -57,6 +58,7 @@ $prices = [3, 2, 2, 5, 8];
                     foreach($prices as $index=>$price){
                         $prices[$index] = $price + 1;
                     }
+                    var_dump($prices);
 
                 ?>
 
@@ -72,6 +74,7 @@ $prices = [3, 2, 2, 5, 8];
             <?php
 
                 $store = array_combine($fruits, $prices);
+                var_dump($store);
 
             ?>
 
@@ -83,13 +86,15 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Afficher dans une liste HTML le nom des fruits ayant un prix inférieur à 4 euros</p>
             <div class="exercice-sandbox">
-
+                <ul>
                     <?php
 
-                    
+                        foreach ($store as $fruit=>$price){
+                            if( $price < 4)  echo "<li>$fruit : $price</li>";
+                        }
 
                     ?>
-
+                </ul>
             </div>
         </section>
 
@@ -98,10 +103,26 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 5</h2>
             <p class="exercice-txt">Afficher dans une liste HTML le nom des fruits ayant un prix pair</p>
             <div class="exercice-sandbox">
+                <ul>
+                    <?php
 
+                        function even($var)
+                        {
+                            // retourne si l'entier en entrée est pair
+                            return !($var & 1);
+                        }
+                        $arrayFilter = array_filter(array_values($store),"even");
+
+
+                        foreach($store as $name=>$price){
+                            if(in_array($price,$arrayFilter)) echo "<li>$name : $price</li>";
+                        }
+
+                    ?>
+                </ul>
             </div>
         </section>
-                    
+
         <!-- QUESTION 6 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 6</h2>

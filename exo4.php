@@ -67,7 +67,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             </div>
         </section>
 
-        <!-- QUESTION 4 -->
+        <!-- QUESTION 4bis -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers et un entier. La fonction doit retourner les valeurs du tableau divisées par le second paramètre</p>
