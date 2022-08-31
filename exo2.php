@@ -187,11 +187,7 @@ $fruits = ["fraise", "banane", "pomme", "cerise", "abricot", "pêche", "ananas",
             <div class="exercice-sandbox">
                     <?php
 
-                            foreach($fruits as $index=>$fruit){
-                                $result = "$fruit ";
-                                if($index < sizeof($fruits)-1) $result .= ",";
-                                echo $result;
-                            }
+                            echo implode(", ", $fruits);
 
                     ?>
             </div>
