@@ -128,16 +128,37 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 6</h2>
             <p class="exercice-txt">Composer un panier de fruits ne dépassant pas 12 euros</p>
             <div class="exercice-sandbox">
-                
+                <ul>
+                    <?php
+
+                        $totalPrice = 0;
+
+                        foreach($store as $name=>$price){
+                            $totalPrice += $price;
+                            if($totalPrice <= 12) echo "<li>$name : $price => total : $totalPrice</li>";
+                        }
+
+                    ?>
+                </ul>
             </div>
         </section>
-                    
+
         <!-- QUESTION 7 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 7</h2>
             <p class="exercice-txt">En reprenant le prix total du panier constitué à la question précédente, appliquez-lui une taxe de 18%. Afficher le total taxe comprise.</p>
             <div class="exercice-sandbox">
-                
+
+            <?php
+
+                function applyTax($total, $tax){
+                    return $total + $total * ($tax/100);
+                }
+
+                echo "Prix total : $totalPrice => avec taxe 18% : ".applyTax($totalPrice,  18).".";
+
+            ?>
+
             </div>
         </section>
 
@@ -146,22 +167,36 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Ajouter au tableau $store le fruit "kiwi" pour un prix de 1,50 € puis afficher le tableau complet</p>
             <div class="exercice-sandbox">
-                
+
+            <?php
+
+                $store["kiwi"]  = 1.50;
+                var_dump($store);
+
+            ?>
+
             </div>
         </section>
 
         <!-- QUESTION 9 -->
         <?php
-        $newFruits = [
-            "pêche" => 3,
-            "abricot" => 2,
-            "mangue" => 9
-        ];
+            $newFruits = [
+                "pêche" => 3,
+                "abricot" => 2,
+                "mangue" => 9
+            ];
         ?>
         <section class="exercice">
             <h2 class="exercice-ttl">Question 9</h2>
             <p class="exercice-txt">Ajouter les nouveaux fruits du tableau $newFruits au tableau $store</p>
             <div class="exercice-sandbox">
+
+            <?php
+
+                $store = array_merge($store, $newFruits);
+                var_dump($store);
+
+            ?>
 
             </div>
         </section>
@@ -171,7 +206,18 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher le nom et le prix du fruit le moins cher</p>
             <div class="exercice-sandbox">
-                
+
+                <?php
+
+                    array_multisort($store, SORT_NUMERIC, SORT_ASC);
+                    $sliceData =  array_slice($store, 0, 1);
+
+                    foreach($sliceData as $name => $price){
+                        echo $name." : ".$price;
+                    }
+
+                ?>
+
             </div>
         </section>
 
@@ -180,7 +226,9 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher les noms et le prix des fruits les plus chers</p>
             <div class="exercice-sandbox">
+
                 
+
             </div>
         </section>
     </div>
