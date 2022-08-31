@@ -134,8 +134,11 @@ $prices = [3, 2, 2, 5, 8];
                         $totalPrice = 0;
 
                         foreach($store as $name=>$price){
-                            $totalPrice += $price;
-                            if($totalPrice <= 12) echo "<li>$name : $price => total : $totalPrice</li>";
+                            if($totalPrice + $price <= 12){
+                                $totalPrice += $price;
+                                echo "<li>$name : $price => total : $totalPrice</li>";
+                            }
+                            if($totalPrice >= 12) break;
                         }
 
                     ?>
@@ -209,9 +212,11 @@ $prices = [3, 2, 2, 5, 8];
 
                 <?php
 
+                    // asort($store);
                     array_multisort($store, SORT_NUMERIC, SORT_ASC);
                     $sliceData =  array_slice($store, 0, 1);
 
+                    // echo array_keys($sliceData)[0]." : ".array_values($sliceData)[0];
                     foreach($sliceData as $name => $price){
                         echo $name." : ".$price;
                     }
@@ -223,12 +228,18 @@ $prices = [3, 2, 2, 5, 8];
 
         <!-- QUESTION 11 -->
         <section class="exercice">
-            <h2 class="exercice-ttl">Question 10</h2>
+            <h2 class="exercice-ttl">Question 11</h2>
             <p class="exercice-txt">Afficher les noms et le prix des fruits les plus chers</p>
             <div class="exercice-sandbox">
+                <ul>
+                    <?php
 
-                
+                        foreach($store as $name=>$price){
+                            if($price === max($store)) echo "<li>$name : $price</li>";
+                        }
 
+                    ?>
+                </ul>
             </div>
         </section>
     </div>
