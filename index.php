@@ -209,7 +209,6 @@
                 }
                 
                 echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
-
                 ?>
             </div>
         </section>
