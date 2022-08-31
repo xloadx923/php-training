@@ -166,7 +166,51 @@
             <h2 class="exercice-ttl">Question 7</h2>
             <p class="exercice-txt">En réutilisant les scores de la question pécédente, afficher le nom du joueur ayant obtenu le plus grand score.</p>
             <div class="exercice-sandbox">
+                <?php
+                $maxScore = $scorePlayer1;
+                $topPlayer = $namePlayer1;
                 
+                if($scorePlayer2>$maxScore){
+                    $maxScore=$scorePlayer2;
+                    $topPlayer=$namePlayer2;
+                }
+                
+                if($scorePlayer3>$maxScore){
+                    $maxScore=$scorePlayer3;
+                    $topPlayer=$namePlayer3;
+                }
+                
+                if($scorePlayer4>$maxScore){
+                    $maxScore=$scorePlayer4;
+                    $topPlayer=$namePlayer4;
+                }
+                
+                if($scorePlayer5>$maxScore){
+                    $maxScore=$scorePlayer5;
+                    $topPlayer=$namePlayer5;
+                }
+                echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
+
+
+                foreach($scores as $playerName=>$score){
+                    if(!isset($maxScore) || $score>$maxScore){
+                        $maxScore=$score;
+                        $topPlayer=$playerName;
+                    }
+                }
+                echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
+
+                $maxScore = max($scores);
+                
+                foreach($scores as $playerName => $score){
+                    if ($maxScore === $score) {
+                        $topPlayer = $playerName;
+                    }
+                }
+                
+                echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
+
+                ?>
             </div>
         </section>
 
@@ -176,7 +220,17 @@
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Affichez le prénom du joueur le plus long en nombre de caractères.</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                // $maxName = max(strlen($namePlayer1),strlen($namePlayer2),strlen($namePlayer3),strlen($namePlayer4),strlen($namePlayer5));
+                $maxName = max(array_map("strlen", array_keys($scores)));
+                foreach($scores as $playerName => $score){
+                    if ($maxName === strlen($playerName)) {
+                        echo $playerName;
+                        
+                    }
+                }
+
+                ?>
             </div>
         </section>
 
