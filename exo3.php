@@ -143,7 +143,7 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 7</h2>
             <p class="exercice-txt">En reprenant le prix total du panier constitué à la question précédente, appliquez-lui une taxe de 18%. Afficher le total taxe comprise.</p>
             <div class="exercice-sandbox">
-                
+                <?=$cart * 1.18?>
             </div>
         </section>
 
@@ -152,7 +152,11 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Ajouter au tableau $store le fruit "kiwi" pour un prix de 1,50 € puis afficher le tableau complet</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    $store["kiwi"] = 1.5;
+
+                    var_dump($store);
+                ?>
             </div>
         </section>
 
@@ -168,7 +172,15 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 9</h2>
             <p class="exercice-txt">Ajouter les nouveaux fruits du tableau $newFruits au tableau $store</p>
             <div class="exercice-sandbox">
+            <?php
+                // foreach ($newFruits as $newFruit => $price) {
+                //     $store[$newFruit] = $price;
+                // }
 
+                $store = array_merge($store, $newFruits);
+
+                var_dump($store);
+            ?>
             </div>
         </section>
 
