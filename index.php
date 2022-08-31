@@ -148,9 +148,13 @@
                     $scorePlayer5 = 103;
 
                     $rounds = [];
-                    $minMaxScores = [];
-                    array_push( $rounds, [$namePlayer1 => $scorePlayer1], [$namePlayer2 => $scorePlayer2],
-                            [$namePlayer3 => $scorePlayer3], [$namePlayer4 => $scorePlayer4], [$namePlayer5 => $scorePlayer5]);
+                    array_push( $rounds,
+                        [$namePlayer1 => $scorePlayer1],
+                        [$namePlayer2 => $scorePlayer2],
+                        [$namePlayer3 => $scorePlayer3],
+                        [$namePlayer4 => $scorePlayer4],
+                        [$namePlayer5 => $scorePlayer5]
+                    );
 
                         $result = "";
 
@@ -241,6 +245,7 @@
 
                 <?php
 
+                    $result = "";
                     $players = [];
                     array_push($players,
                         [
@@ -270,8 +275,14 @@
                             ]
                     );
 
-                    var_dump($players);
+                    foreach($players as $player){
+                        foreach($player as $title=>$detail){
+                            $result .= "<p class=\"result9\">$title : $detail</p>";
+                        }
+                    }
 
+                    echo $result;
+                    var_dump($players);
                 ?>
 
             </div>
@@ -285,23 +296,7 @@
 
                 <?php
 
-                    $last = 0;
-                    $resultName = "";
-
-                    foreach($players as $player){
-                        
-                        foreach($player as $name=>$age){
-                            $next = $age;
-                            if( $last !== 0 && $next < $last){
-                                echo "
-                                ".$next;
-                                $resultName = $name;
-                                $last = $next;
-                            }
-                        }
-                    }
-                    echo "<p>$resultName a $last ans, il est le plus jeune</p>";
-                    var_dump($players);
+                    echo "<p>".$players[0]['name']." a ".$players[0]['age']." ans, il est le plus jeune</p>";
                 ?>
 
             </div>
