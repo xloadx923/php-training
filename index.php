@@ -182,19 +182,15 @@
 
             <?php
 
-                $last = 0;
-                $resultName = "";
-
                 foreach($rounds as $round){
                     foreach($round as $name=>$score){
-                        $next = $score;
-                        if($next > $last){
+                        if(!isset($last) || $score > $last){
                             $resultName = $name;
                             $last = $score;
                         }
                     }
                 }
-                echo $resultName;
+                echo "<p>".$resultName." : ".$last."</p>";
 
             ?>
 
@@ -272,7 +268,7 @@
                             "name"  => "Kevin",
                             "age"   => 31,
                             "score" => 103
-                            ]
+                        ]
                     );
 
                     foreach($players as $player){
@@ -296,7 +292,15 @@
 
                 <?php
 
-                    echo "<p>".$players[0]['name']." a ".$players[0]['age']." ans, il est le plus jeune</p>";
+                    foreach($players as $player){
+                        if(!isset($minAge) || $player['age'] < $minAge){
+                            $minAge = $player['age'];
+                            $youngerPlayer = $player["name"];
+                        }
+                    }
+
+                    echo "<p>$youngerPlayer a $minAge ans, il est le plus jeune</p>";
+
                 ?>
 
             </div>
