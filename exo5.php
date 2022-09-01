@@ -46,13 +46,27 @@ try {
             <h2 class="exercice-ttl">Question 1</h2>
             <p class="exercice-txt">Récupérer dans un tableau puis affichez l'ensemble des plateformes de diffusion des séries. Afficher les par ordre alphabétique.</p>
             <div class="exercice-sandbox">
+                </ul>
+                    <?php
 
-                <?php
+                        // var_dump($series);
 
-                    
+                        $plateforms = [];
+                        foreach($series as $serie){
+                            foreach($serie as $key => $value){
+                                if($key === "availableOn") array_push($plateforms, $value);
+                            }
+                        }
 
-                ?>
+                        sort($plateforms);
+                        $orderPlateforms = array_unique($plateforms);
 
+                        foreach($orderPlateforms as $plateform){
+                            echo "<li>$plateform</li>";
+                        }
+
+                    ?>
+                </ul>
             </div>
         </section>
 
@@ -65,8 +79,23 @@ try {
 
                 <?php
 
+                    $styles = [];
+                    foreach($series as $serie){
+                        foreach($serie as $key => $value){
+                            if($key === "styles"){
+                                foreach($value  as $style){
+                                    array_push($styles, $style);
+                                }
+                            }
+                        }
+                    }
 
+                    sort($styles);
+                    $orderStyles = array_unique($styles);
 
+                    foreach($orderStyles as $style){
+                        echo "<li>$style</li>";
+                    }
                 ?>
 
             </div>
@@ -78,14 +107,31 @@ try {
             <p class="exercice-txt">Afficher la liste de toutes les séries avec l'image principale, le titre, l'équipe de création et la liste des acteurs</p>
             <p class="exercice-txt">L'image et le titre de la série sont des liens menant à cette page avec en paramètre "serie", l'identifiant de la série</p>
             <p class="exercice-txt">Afficher une seule série par ligne sur les plus petits écrans, 2 séries par ligne sur les écrans intermédiaires et 4 séries par ligne sur un écran d'ordinateur.</p>
-            <div class="exercice-sandbox">
+            <div class="exercice-sandbox list-films">
+                    <?php
 
-                <?php
+                        foreach($series as $serie){
+                            $actors = "Actors : ";
+                            $creators = "Creators : ";
+                            foreach($serie as $key => $item){
+                                if($key === "createdBy"){
+                                    $creators .= implode(", ",$item);
+                                }
+                                if($key === "actors"){
+                                    $actors .= implode(", ",$item);
+                                }
+                            }
+                            echo "
+                            <div class='film'>
+                                <span><img src='".$serie["image"]."'></span>
+                                <span>".$serie["name"]."</span>
+                                <span>$creators</span>
+                                <span>$actors</span>
+                            </div>
+                            ";
+                        }
 
-
-
-                ?>
-
+                    ?>
             </div>
         </section>
 
@@ -131,7 +177,7 @@ try {
 
                 <?php
 
-                
+
 
                 ?>
 
