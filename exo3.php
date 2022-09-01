@@ -237,8 +237,8 @@ $prices = [3, 2, 2, 5, 8];
                         foreach($store as $name=>$price){
                             if($price === max($store)) echo "<li>$name : $price</li>";
                         }
-
                     ?>
+                    <!-- ON PEUT UTILISER UNE LISTE SI ON VEUT AFFICHER LES FRUITS MAIS UN SEUL PRIX -->
                 </ul>
             </div>
         </section>
