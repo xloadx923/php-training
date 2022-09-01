@@ -46,7 +46,13 @@ try {
             <h2 class="exercice-ttl">Question 1</h2>
             <p class="exercice-txt">Récupérer dans un tableau puis affichez l'ensemble des plateformes de diffusion des séries. Afficher les par ordre alphabétique.</p>
             <div class="exercice-sandbox">
-                
+
+                <?php
+
+                    
+
+                ?>
+
             </div>
         </section>
 
@@ -56,7 +62,13 @@ try {
             <h2 class="exercice-ttl">Question 2</h2>
             <p class="exercice-txt">Récupérer dans un tableau puis affichez l'ensemble des styles de séries. Afficher les par ordre alphabétique.</p>
             <div class="exercice-sandbox">
-                
+
+                <?php
+
+
+
+                ?>
+
             </div>
         </section>
 
@@ -68,6 +80,12 @@ try {
             <p class="exercice-txt">Afficher une seule série par ligne sur les plus petits écrans, 2 séries par ligne sur les écrans intermédiaires et 4 séries par ligne sur un écran d'ordinateur.</p>
             <div class="exercice-sandbox">
 
+                <?php
+
+
+
+                ?>
+
             </div>
         </section>
 
@@ -78,7 +96,13 @@ try {
             <p class="exercice-txt">Si l'URL de la page appelée comporte l'identifiant d'une série, alors afficher toutes les informations de la série.</p>
             <p class="exercice-txt">Si l'identifiant ne correspond à aucune série, afficher un message d'erreur.</p>
             <div class="exercice-sandbox">
-                
+
+            <?php
+
+
+
+            ?>
+
             </div>
         </section>
 
@@ -88,7 +112,13 @@ try {
             <p class="exercice-txt">Globaliser l'entête et le pied des pages de ce mini-site.</p>
             <p class="exercice-txt">S'assurer de conserver les titres des pages et l'affichage dynamique du menu.</p>
             <div class="exercice-sandbox">
-                
+
+                <?php
+
+
+
+                ?>
+
             </div>
         </section>
 
@@ -98,7 +128,13 @@ try {
             <p class="exercice-txt">Créer un tableau listant les pages du site.</p>
             <p class="exercice-txt">Créer une fonction générant le code HTML du menu du site.</p>
             <div class="exercice-sandbox">
+
+                <?php
+
                 
+
+                ?>
+
             </div>
         </section>
 
