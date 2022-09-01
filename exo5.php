@@ -72,11 +72,31 @@ try {
         </section>
 
 
+        <!-- QUESTION 4 -->
+        <section id="question5" class="exercice">
+            <h2 class="exercice-ttl">Question 4</h2>
+            <p class="exercice-txt">Si l'URL de la page appelée comporte l'identifiant d'une série, alors afficher toutes les informations de la série.</p>
+            <p class="exercice-txt">Si l'identifiant ne correspond à aucune série, afficher un message d'erreur.</p>
+            <div class="exercice-sandbox">
+                
+            </div>
+        </section>
+
         <!-- QUESTION 5 -->
         <section id="question5" class="exercice">
             <h2 class="exercice-ttl">Question 5</h2>
-            <p class="exercice-txt">Si l'URL de la page appelée comporte l'identifiant d'une série, alors afficher toutes les informations de la série.</p>
-            <p class="exercice-txt">Si l'identifiant ne correspond à aucune série, afficher un message d'erreur.</p>
+            <p class="exercice-txt">Globaliser l'entête et le pied des pages de ce mini-site.</p>
+            <p class="exercice-txt">S'assurer de conserver les titres des pages et l'affichage dynamique du menu.</p>
+            <div class="exercice-sandbox">
+                
+            </div>
+        </section>
+
+        <!-- QUESTION 6 -->
+        <section id="question5" class="exercice">
+            <h2 class="exercice-ttl">Question 6</h2>
+            <p class="exercice-txt">Créer un tableau listant les pages du site.</p>
+            <p class="exercice-txt">Créer une fonction générant le code HTML du menu du site.</p>
             <div class="exercice-sandbox">
                 
             </div>

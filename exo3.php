@@ -44,6 +44,11 @@ $prices = [3, 2, 2, 5, 8];
 
                 ?>
 
+                <?php
+                    sort($prices);
+                    var_dump($prices);
+                ?>
+
             </div>
         </section>
 
@@ -62,6 +67,18 @@ $prices = [3, 2, 2, 5, 8];
 
                 ?>
 
+                <?php
+                $add = fn($n) => ++$n;
+                $prices = array_map($add, $prices);
+
+                var_dump($prices);
+
+                // foreach ($prices as $price) {
+                //     $newPrice = $price + 1;
+                //     echo $newPrice."\n";
+                // }
+                ?>
+
             </div>
         </section>
 
@@ -78,6 +95,10 @@ $prices = [3, 2, 2, 5, 8];
 
             ?>
 
+                <?php
+                $store = array_combine($fruits, $prices);
+                var_dump($store);
+                ?>
             </div>
         </section>
 
@@ -92,6 +113,12 @@ $prices = [3, 2, 2, 5, 8];
                         foreach ($store as $fruit=>$price){
                             if( $price < 4)  echo "<li>$fruit : $price</li>";
                         }
+
+                        foreach ($store as $fruit => $price) {
+                            if ($price < 4) echo "<li>$fruit</li>";
+                        }
+
+                        var_dump(array_filter($store, fn($p) => $p < 4));
 
                     ?>
                 </ul>
@@ -118,6 +145,10 @@ $prices = [3, 2, 2, 5, 8];
                             if(in_array($price,$arrayFilter)) echo "<li>$name : $price</li>";
                         }
 
+                        foreach ($store as $fruit => $price) {
+                            if ($price%2 === 0) echo "<li>$fruit</li>";
+                        }
+
                     ?>
                 </ul>
             </div>
@@ -128,6 +159,7 @@ $prices = [3, 2, 2, 5, 8];
             <h2 class="exercice-ttl">Question 6</h2>
             <p class="exercice-txt">Composer un panier de fruits ne dépassant pas 12 euros</p>
             <div class="exercice-sandbox">
+
                 <ul>
                     <?php
 
@@ -143,6 +175,31 @@ $prices = [3, 2, 2, 5, 8];
 
                     ?>
                 </ul>
+
+                <?php
+                    $cart = 0;
+                    foreach ($store as $fruit => $price) {
+                        if ($cart + $price <= 12) {
+                            $cart += $price;
+                            echo "<li>On ajoute $fruit, le panier est de $cart.</li>";
+                        }
+                        if ($cart >= 12) break;
+                    }
+
+
+                    $cart = 0;
+                    $cartList = "";
+                    while ($cart < 12) {
+                        $key = array_rand($store);
+                        if ($cart + $store[$key] > 12) break;
+                        $cart += $store[$key];
+                        $cartList .= "<li>$key: ".$store[$key]."</li>";
+                    }
+
+                    echo "Panier de $cart <ul>$cartList</ul>";
+
+                ?>
+
             </div>
         </section>
 
@@ -162,6 +219,8 @@ $prices = [3, 2, 2, 5, 8];
 
             ?>
 
+                <?=$cart * 1.18?>
+
             </div>
         </section>
 
@@ -178,7 +237,13 @@ $prices = [3, 2, 2, 5, 8];
 
             ?>
 
+                <?php
+                    $store["kiwi"] = 1.5;
+
+                    var_dump($store);
+                ?>
             </div>
+
         </section>
 
         <!-- QUESTION 9 -->
@@ -189,18 +254,22 @@ $prices = [3, 2, 2, 5, 8];
                 "mangue" => 9
             ];
         ?>
+
         <section class="exercice">
             <h2 class="exercice-ttl">Question 9</h2>
             <p class="exercice-txt">Ajouter les nouveaux fruits du tableau $newFruits au tableau $store</p>
             <div class="exercice-sandbox">
-
             <?php
+                // foreach ($newFruits as $newFruit => $price) {
+                //     $store[$newFruit] = $price;
+                // }
+
 
                 $store = array_merge($store, $newFruits);
+
                 var_dump($store);
-
             ?>
-
+            
             </div>
         </section>
 
